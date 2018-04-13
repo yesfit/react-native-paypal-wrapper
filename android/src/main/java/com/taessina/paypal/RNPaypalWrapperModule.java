@@ -165,10 +165,11 @@ public class RNPaypalWrapperModule extends ReactContextBaseJavaModule implements
         new BigDecimal(price),
         currency,
         description,
-        PayPalPayment.PAYMENT_INTENT_SALE
+        PayPalPayment.PAYMENT_INTENT_ORDER //GM - pass Order, not Sale
       );
 
-    payment.enablePayPalShippingAddressesRetrieval(true);
+    //GM - Make this false
+    payment.enablePayPalShippingAddressesRetrieval(false);
 
     Intent intent = new Intent(reactContext, PaymentActivity.class);
 
