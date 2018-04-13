@@ -105,7 +105,7 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)options resolver:(RCTPromiseResolveBlock)r
     [self.payment setCurrencyCode:currency];
     [self.payment setShortDescription:description];
     //GM - Add intent for specifying Order
-    [self.payment setIntent:PayPalPaymentIntent.PayPalPaymentIntentOrder]
+    [self.payment setIntent:(enum PayPalPaymentIntent) PayPalPaymentIntentOrder];    
     
     self.configuration = [[PayPalConfiguration alloc] init];
     [self.configuration setAcceptCreditCards:false];
